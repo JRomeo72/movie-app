@@ -1,25 +1,24 @@
-#!/usr/bin/envsh
+#!/usr/bin/env sh
 
-# abortar en caso de errores
+# abort on errors
 set -e
 
-# compilado
+# build
 npm run build
 
-# navega al directorio de salida de compilación
-dist cd
+# navigate into the build output directory
+cd dist
 
-# si estás desplegando en un dominio personalizado
-# echo 'movie-app.tk' > CNAME
+# if you are deploying to a custom domain
+# echo 'www.example.com' > CNAME
 
 git init
+git checkout -b main
 git add -A
 git commit -m 'deploy'
 
-# si estás desplegando en https://<NOMBRE DE USUARIO>.github.io
-# git push -f git@github.com:<NOMBRE DE USUARIO>/<NOMBRE DE USUARIO>.github.io.git main
+# if you are deploying to https://<USERNAME>.github.io
+# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
-# si estás desplegando en https://<NOMBRE DE USUARIO>.github.io/<REPO>
-git push -f git@github.com:jromeo72/movie-app.git main:gh-pages
-
-cd -
+# if you are deploying to https://<USERNAME>.github.io/<REPO>
+# git push -f git@github.com:JRomeo72/movie-app.git main:gh-pages
