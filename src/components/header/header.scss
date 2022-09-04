@@ -1,0 +1,106 @@
+@use '../../assets/sass/' as *;
+
+
+
+.header {
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    transition: height .3s ease, background-color .3s ease;
+    // border: 1px solid white;
+
+    &.shrink {
+        height: $header-shrink-height;
+        background-color: $body-bg;
+    }
+
+    &__wrap {
+        @include flex(center, space-between);
+        // border: 1px solid white;
+        height: 100%;
+        padding: 0 2rem;
+
+        @include mobile {
+            justify-content: center;
+        }
+    }
+
+    &__logo {
+        font-size: 2.5rem;
+        font-weight: 600;
+    
+        @include flex(center, unset);
+    
+        img {
+            margin-right: 10px;
+            width: 50px;
+    
+            @include mobile {
+                width: 30px;
+            }
+        }
+    }
+
+    &__nav {
+        // border: 1px solid white;
+        @include flex(center, unset);
+
+        & > * ~ * {
+            margin-left: 2rem;
+        }
+
+        li {
+            padding: 5px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            // border: 1px solid white;
+
+            &.active {
+                color: $main-color;
+            }
+
+            a {
+                transition: color 0.3s ease;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                width: 0;
+                height: 2px;
+                transform: translateX(-50%);
+                background-color: $main-color;
+                transition: width 500ms ease
+            }
+
+            &.active::after,
+            &:hover::after {
+                width: 100%;
+            }
+        }
+
+        @include mobile {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 5rem;
+            width: 100%;
+            padding: 0 2rem;
+            background-color: $body-bg;
+            box-shadow: $box-shadow;
+
+            @include flex(center, space-between);
+
+            & > * ~ * {
+                margin-left: 0;
+            }
+        }
+
+    }
+}
