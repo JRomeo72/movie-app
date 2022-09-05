@@ -10,7 +10,7 @@ import Footer from './components/footer/Footer';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/movie-app'>
       <Header />
       <Router />
       <Footer />

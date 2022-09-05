@@ -6,7 +6,7 @@ import Detail from '../views/Detail';
 
 const Router = () => {
     return (
-        <Routes basename='/movie-app'>
+        <Routes>
             <Route path='/:category/search/:keyword' element={<Catalog />} />
             <Route path='/:category/:id' element={<Detail />} />
             <Route path='/:category' element={<Catalog />} />
