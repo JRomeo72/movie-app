@@ -6,15 +6,15 @@ import './header.scss';
 const headerNav = [
 	{
 		display: 'Home',
-		path: '/'
+		path: '/movie-app/'
 	},
 	{
 		display: 'Movies',
-		path: '/movie'
+		path: '/movie-app/movie'
 	},
 	{
 		display: 'TV Series',
-		path: '/tv'
+		path: '/movie-app/tv'
 	},
 ]
 
@@ -46,7 +46,7 @@ const Header = () => {
 			<div className="header__wrap container">
 				<div className="header__logo">
 					<img src={logo} alt="logo" />
-					<Link to={'/'} >tMovies</Link>
+					<Link to={'/movie-app/'} >tMovies</Link>
 				</div>
 				<ul className="header__nav">
 					{
